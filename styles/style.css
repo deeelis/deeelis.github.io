@@ -260,7 +260,7 @@
   align-items: center;
 }
 
-.form{
+.form {
   display: grid;
   grid-template-columns:auto;
   gap: 5px;
@@ -308,6 +308,10 @@
   text-decoration: none;
 }
 
+.feedback-form {
+  margin-top: 40px;
+}
+
 .form__popup_active{
   display: block;
 }
@@ -339,11 +343,13 @@
   margin: auto;
   opacity: 1;
 }
+
 .time__popup_active{
   display: block;
   opacity: 1;
   z-index: 3;
 }
+
 .time__popup-bg{
   position: fixed;
   width: 100%;
@@ -358,10 +364,16 @@
   z-index: -1;
   transition: opacity .5s;
 }
+
 .time__popup-bg_active{
   opacity: 1;
   z-index: 1;
   transition: opacity .5s;
+}
+
+.time__popup-text {
+  color: red;
+  font-weight: 700;
 }
 
 
