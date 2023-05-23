@@ -293,7 +293,7 @@ const popupTimeout=async function(){
             oPopup.querySelector('.time__popup').remove("time__popup_active");
         }
     });
-    }, 3000));
+    }, 30000));
     }
 }
 popupTimeout();
