@@ -5,17 +5,19 @@ const changeTheme=function() {
     r.style.setProperty('--background','#fff');
     r.style.setProperty('--color-background', '#FFCBB3');
     r.style.setProperty('--text','#000');
+    r.style.setProperty('--size', '27px');
     var rs = getComputedStyle(r);
     changeButton.addEventListener('click', function() {
         if (rs.getPropertyValue('--background') == '#fff') {
             r.style.setProperty('--background','#000');
             r.style.setProperty('--color-background', '#E69795');
             r.style.setProperty('--text','#fff');
-            
+            r.style.setProperty('--size', '35px');
         } else {
             r.style.setProperty('--background','#fff');
             r.style.setProperty('--color-background','#FFCBB3');
             r.style.setProperty('--text','#000');
+            r.style.setProperty('--size', '27px');
         }
         
     });
@@ -71,7 +73,7 @@ const check=function(){
     forms.forEach(element => {
         validation(element);
     });
-    // document.f
+    
     const buttons=document.querySelectorAll('button[type="submit"]');
     buttons.forEach((button)=>{
         button.addEventListener('click',async function(){
@@ -107,7 +109,6 @@ const validation=function (form){
     const inputs=form.querySelectorAll('input');
     inputs.forEach((input)=>{
         input.addEventListener('input',function(){
-            console.log("work");
             isvalid(form, input);
             buttonValid(inputs, button);
         });
@@ -121,9 +122,9 @@ const buttonValid=function(inputs,button){
             b=false;
         }
     });
-    if(b){
+    if(b) {
         button.disabled=false;
-    }else{
+    } else {
         button.disabled=true;
     }
 }
@@ -132,15 +133,24 @@ const isvalid=function(form,input){
         if(!input.validity.valid){
             showError(form,input,input.validationMessage);
         } else if (!checklanguage(input.value.replace(/\s/g))){
-            showError(form,input,"Invalid Language");
+            showError(form,input,"Неверный язык");
+        } else if (input.type === "tel" && !checktelephone(input)) {
+            showError(form, input, "Неверный формат номера телефона");
         } else {
             notShowError(form,input);
         }
     }
 }
 
+
+const checktelephone = function (input) {
+    const inputValue = input.value.split("+");
+    const telEnd = inputValue.pop();
+    return !(Number.isNaN(Number(telEnd)) || telEnd.length !== 11 || (inputValue.length === 1 && inputValue[0] !== "") || inputValue.length > 1);
+}
+
 const checklanguage=function(text){
-    let value=/^[a-zA-Z0-9.@]+$/;
+    let value=/^[a-zA-Z0-9.@+-]+$/;
     if (value.test(text)==true){
         return true;
     } else {
@@ -173,18 +183,19 @@ check();
 const popup=function(){
     let openLink = document.querySelectorAll(".form_modal");
     let oPopup = document.querySelector(".form__popup-bg");
+    let oPage = document.querySelector(".page");
     openLink.forEach((button) => {
 	    button.addEventListener('click', function(evt){
 		    let formID = evt.target.getAttribute('href');
-            console.log("sdasdas");
 		    document.querySelector(formID).classList.add("form__popup_active");
 		    oPopup.classList.add("form__popup-bg_active");
+            oPage.classList.add("page_popup_active");
 	    });
     });
     document.addEventListener('click', function(evt){
         if(evt.target == oPopup){
-            console.log("dfsdfsdf")
             oPopup.classList.remove("form__popup-bg_active");
+            oPage.classList.remove("page_popup_active");
             oPopup.querySelectorAll('.popup').forEach((popupItem) => {
                 popupItem.classList.remove("form__popup_active");
             });
@@ -220,6 +231,7 @@ const opacityButtonsprev=function(list,button){
 const popupGallery=function(){
     let openLink = document.querySelectorAll('.gallery__modal');
     let oPopup = document.querySelector(".gallery__popup-bg");
+    let oPage = document.querySelector(".page");
     openLink.forEach((button) => {
 	    button.addEventListener('click', function(evt){
 		    let formID = evt.currentTarget.getAttribute('href');
@@ -259,12 +271,15 @@ const popupGallery=function(){
             console.log(list);
 		    document.querySelector(formID).classList.add("gallery__popup_active");
 		    oPopup.classList.add("gallery__popup-bg_active");
+            oPage.classList.add("page_popup_active");
+
 	    });
     });
 
     document.addEventListener('click', function(evt){
         if (evt.target == oPopup){
             oPopup.classList.remove("gallery__popup-bg_active");
+            oPage.classList.remove("page_popup_active");
             oPopup.querySelectorAll('.popup').forEach((popupItem) => {
                 popupItem.classList.remove("gallery__popup_active");
             });
@@ -293,7 +308,7 @@ const popupTimeout=async function(){
             oPopup.querySelector('.time__popup').remove("time__popup_active");
         }
     });
-    }, 30000));
+    }, 3000));
     }
 }
 popupTimeout();
