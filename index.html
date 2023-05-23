@@ -10,8 +10,8 @@
   <meta property="profile:first_name" content="Дарья"> 
   <meta property="profile:last_name" content="Зайцева"> 
   <meta property="profile:username" content="deeelis"> 
-  <meta property="og:title" content="Портфолио | deeelis"> 
-  <meta property="og:description" content="Сайт-портфолио о Дарье Зайцевой.">
+  <meta property="og:title" content="Портфолио"/> 
+  <meta property="og:description" content="Сайт-портфолио">
   <meta property="og:image" content="./images/main-photo-2.webp"> 
   <meta property="og:url" content="https://deeelis.github.io/"> 
   <meta property="og:site_name" content="Портфолио"> 
@@ -20,93 +20,140 @@
 </head>
 
 <body class="page">
-
   <header class="header">
-    <div class="title"><h1 class="font_xl">Зайцева Дарья</h1></div>
+    <div class="title"><h1 class="font_l">Зайцева Дарья</h1></div>
     <nav class="header-menu">
-      <a href="#main" class="header-menu__link font_l">Общая информация</a>
-      <a href="#skills" class="header-menu__link font_l">Навыки</a>
-      <a href="#interests" class="header-menu__link font_l">Интересы</a>
+      <a href="#main-information" class="header-menu__link font_l">Общая информация</a>
+      <a href="#gallery" class="header-menu__link font_l">Галерея</a>
+      <a href="#skills" class="header-menu__link font_l">Навыки и интересы</a>
       <a href="#contacts" class="header-menu__link font_l">Контакты</a>
     </nav>
+    
   </header>
 
   <main class="content">
-    <section class="flex-row" id="main">
-      <div class="title flex-row"><h2 class="font_l">Общая информация</h2></div>
-      <div class="main-information flex-row">
-        <div class="main-information__gallery flex-row_gallery">
-          <img src="./images/main-photo-1.webp" alt="Фото" class="media_l">
-          <video src="./videos/main_video.mp4" class="media_l" autoplay muted loop></video>
-          <img src="./images/main-photo-2.webp" alt="Фото" class="media_l">
-        </div>
-        <div class="main-information__description">
-          <h2 class="font_m">Привет, я Даша!</h2>
-          <h2 class="font_m">Студентка ВШПИ, МФТИ.</h2>
-        </div>
+    <section id="main-information" class="main-information">
+      <div class="main-information__image">
+        <picture>
+          <img class="image" src="./images/main-photo-1.webp" alt="Загрузка..">
+        </picture>
       </div>
-    </section>
+      <div class="main-information__description">
+        <h1 class="font_l">Зайцева Дарья</h1>
+        <p class="font_m">Привет! Я студентка ВШПИ, МФТИ.</p>
+      </div>
+    </section>  
 
-    <section class="margin_y_active flex-row" id="skills">
-      <div class="title flex-row"><h2 class="font_l">Навыки</h2></div>
-      <div class="margin_x_active flex-row_full-width">
-        <div class="flex-column">
-          <h2 class="list-header font_m">"Soft skills"</h2>
-          <ul class="list font_m">
-            <li>Креативность</li>
-            <li>Стрессоустойчивость</li>
+
+    <section id="gallery" class="gallery">
+      <ul class="gallery__list">
+        <li>
+          <a href="#form" class="gallery__modal" >
+            <img  src="./images/photo1.webp" alt="Загрузка.." style="height: 300px;">
+          </a>
+        </li>
+        <li>
+          <a href="#form" class="gallery__modal">
+            <img  src="./images/photo2.webp" alt="Загрузка.." style="height: 300px;">
+          </a>
+        </li>
+        <li>
+          <a href="#form" class="gallery__modal">
+            <img  src="./images/photo3.webp" alt="Загрузка.." style="height: 300px;">
+          </a>
+        </li>
+        <li>
+          <a href="#form" class="gallery__modal">
+            <img  src="./images/photo4.webp" alt="Загрузка.." style="height: 300px;">
+          </a>
+        </li>
+    </ul>
+
+    <div class="gallery__popup-bg">
+        <div id="form" class="gallery__popup">
+            <a class="prev" >&#10094;</a>
+            <div class="popup_image mySlides"></div>
+            <a class="next" >&#10095;</a>
+        </div>
+    </div>
+
+  </section>
+    <section class="skills" id="skills">
+      <div class="title"><h2 class="font_l">Навыки и интересы</h2></div>
+      <div class="skills__content">
+        <div class="list">
+          <h2 class="list__header font_m">Навыки</h2>
+          <ul class="font_m">
             <li>Самоорганизация</li>
             <li>Критическое мышление</li>
             <li>Коммуникативные навыки</li>
+            <li>Программирование</li>
+            <li>Сообразительность</li>
           </ul>
         </div> 
-        <div class="flex-column">
-          <h2 class="list-header font_m">"Hard skills"</h2>
-          <ul class="list font_m">
-            <li>HTML, CSS, JavaScript</li>
-            <li>Java</li>
-            <li>C++</li>
-            <li>Python</li>
-            <li>PostgreSQL</li>
+        <div class="list">
+          <h2 class="list__header font_m">Интересы</h2>
+          <ul class="font_m">
+            <li>Игра на гитаре</li>
+            <li>Танцы</li>
+            <li>Художественная литература</li>
+            <li>Мафия</li>
+            <li>Компьютерные игры</li>
           </ul>
         </div> 
       </div>
     </section>
 
-    <section class="margin_y_active flex-row" id="interests">
-      <div class="title flex-row"><h2 class="font_l">Интересы</h2></div>
-      <div class="margin_x_active flex-row_full-width">
-        <div class="flex-column">
-          <h2 class="list-header font_m">Некоторые мои увлечения:</h2>
-          <ul class="list font_m">
-            <li>Игра на гитаре</li>
-            <li>Танцы</li>
-            <li>Художественная литература</li>
-            <li>Спортивная мафия</li>
-          </ul>
-        </div>
-        <div class="interests__gallery flex-row_gallery">
-          <video src="./videos/dance.mp4" class="media_m" autoplay muted loop></video> 
-          <img src="./images/mafia.webp" alt="Мафия" class="media_m"> 
-          <img src="./videos/guitar.gif" alt="Гитара" class="media_m">
-        </div>
+    <section class="form3">
+      <!-- <button class="form-button" >Форма обратной связи</button> -->
+      <a href="#form3" class="form_modal text link">Форма обратной связи</a>
+      <div class="form__popup-bg">
+          <div id="form3" class="form__popup">
+              <form class="form">
+                  <label for="input2">Адрес электронной почты</label>
+                  <input id="input2" type="email" required>
+                  <span class="input2-error"></span>
+                  <label for="input3">Текст</label>
+                  <input id="input3" type="text" required maxlength="5" minlength="2">
+                  <span class="input3-error"></span>
+                  <label for="input4">Телефон</label>
+                  <input id="input4" type="tel" required>
+                  <span class="input4-error"></span>
+                  <button type="submit" disabled>Отправить</button>
+              </form>
+          </div>
       </div>
-    </section>
+      
+  </section>
+  
+    <div>
+      <div class="time__popup-bg">
+          <div id="time" class="time__popup">
+            <p class="time-popup__text">Привет, ты тут?</p>
+          </div>
+      </div>
+  </div>
+
+
+    <button class="change-button">Сменить тему</button>
+    <button class="rain-button">Включить дождь</button>
   </main>
   
-  <footer class="footer flex-column" id="contacts">
-    <div class="title flex-row"><h2 class="font_l">Контакты</h2></div>
-    <div class="flex-column">
-      <div class="flex-row"><a href="tel:+79012345678" class="font_m">+79012345678</a></div>
-      <ul class="footer_icons list">
-        <li class="footer_icon">
-          <a href="https://t.me/dd_lis" target="_blank"><img src="./icons/telegram.webp" alt="telegram" class="media_s"></a>
-        </li>
-        <li class="footer_icon">
-          <a href="https://vk.com/deeelis" target="_blank"><img src="./icons/vk.webp" alt="vk" class="media_s"></a>
-        </li>
-      </ul>
+  <footer id="contacts" class="footer">
+    <div class="footer__icons">
+      <a href="https://t.me/dd_lis" target="_blank">
+        <img  class="footer__icon media_s" src="./icons/telegram.webp" alt="Загрузка..">
+      </a>
+      <a href="https://vk.com/deeelis">
+        <img  class="footer__icon media_s" src="./icons/vk.webp" alt="Загрузка..">
+      </a>
+      <a href="tel:+79012345678">
+        <img  class="footer__icon media_s" src="./icons/phone.webp" alt="Загрузка..">
+      </a>
     </div>
+    <p class="footer_copyright font_m">© deeelis</p>
   </footer>
+  <div class="rain"></div>
+  <script src="script.js"></script>
 </body>
 </html>
