@@ -4,11 +4,6 @@
   --color-background: #FFCBB3;
 }  */
 
-/* ::selection {
-  background: #545775; 
-  color: #fff; 
- } */
-
 .page {
   font-family: Arial, sans-serif;
   background-color: var(--background);
